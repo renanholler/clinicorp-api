@@ -20,7 +20,7 @@ async function list() {
   const snapshot = await tasksCollection.get();
   const tasks = [];
   snapshot.forEach(doc => {
-    tasks.push({ ...doc.data() });
+    tasks.push({ id: doc.id, ...doc.data() });
   });
   return tasks;
 }
